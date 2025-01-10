@@ -196,7 +196,7 @@
 
     // Fetch events from Google Apps Script API
     function fetchEvents() {
-      fetch('https://script.google.com/macros/s/AKfycby3ZpsuOpWsvbQokZD9qvjkZ51TQfLTx7M5WAopyDx7ItYBpY5o42zn09XuyS-UmdTz-Q/exec')  // Insira a URL correta do seu Google Apps Script aqui
+      fetch('https://script.googleusercontent.com/macros/echo?user_content_key=pC_NNGGMVOZa8xUzvvVig4TvUOSi6N1UwNz0DqyO-eIgFg7fNTpBty8eTwpPY0fIE-fMubQ_qxc6O2ZK_sRy8nLO9lPpAkram5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnHxaWjHXokgv-gFIAY8NW7wteN50MSt00h7i5hv0WFXHkjOEt2WavrBIj2SATRXSk4dNAnY19ET7qd9d53r0KyFjjL5odbFGDtz9Jw9Md8uu&lib=MaCK5k_QJ4XqkYta8txrehTaXDZ-uTDeG')  // Insira a URL correta do seu Google Apps Script aqui
         .then(response => response.json())
         .then(data => {
           events.length = 0; // Clear existing events
@@ -259,7 +259,7 @@
 
       const eventData = { date, start, name, room };
 
-      fetch('https://script.google.com/macros/s/AKfycby3ZpsuOpWsvbQokZD9qvjkZ51TQfLTx7M5WAopyDx7ItYBpY5o42zn09XuyS-UmdTz-Q/exec', {
+      fetch('https://script.googleusercontent.com/macros/echo?user_content_key=pC_NNGGMVOZa8xUzvvVig4TvUOSi6N1UwNz0DqyO-eIgFg7fNTpBty8eTwpPY0fIE-fMubQ_qxc6O2ZK_sRy8nLO9lPpAkram5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnHxaWjHXokgv-gFIAY8NW7wteN50MSt00h7i5hv0WFXHkjOEt2WavrBIj2SATRXSk4dNAnY19ET7qd9d53r0KyFjjL5odbFGDtz9Jw9Md8uu&lib=MaCK5k_QJ4XqkYta8txrehTaXDZ-uTDeG', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(eventData),
