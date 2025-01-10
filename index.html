@@ -8,7 +8,7 @@
     // Função para carregar os dados da API do Google Apps Script
     async function fetchData() {
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbzocg9iPeDeC2sMpWhwzi5MBKY44hfhpTCUyKxYETVflb-dZ2Klu3GpXbTIGmE2eMeajg/exec');
+        const response = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=wUMgS9pRR8wNkH8FkRZByd38ZsIluVx15lXOG60vw9qjA-0MUSizQ0mLhnCG3Wr28ZZBuDUfgpdtH1EOLOV4ZCVM7IeKonuhm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCnQV1Ibh0IYPv1sQmW_1ndmQjcuotFDyxBG1MyUY1MlDyVbfQwWm_Y5latzjwRxGg&lib=MaCK5k_QJ4XqkYta8txrehTaXDZ-uTDeG');
         const data = await response.json();
 
         // Exibe os dados na tabela
