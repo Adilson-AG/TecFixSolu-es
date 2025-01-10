@@ -259,13 +259,14 @@
 
       const eventData = { date, start, name, room };
 
-      fetch('https://script.google.com/macros/s/AKfycby3ZpsuOpWsvbQokZD9qvjkZ51TQfLTx7M5WAopyDx7ItYBpY5o42zn09XuyS-UmdTz-Q/exec', { // Substitua pela URL do seu Google Apps Script
+      fetch('https://script.google.com/macros/s/AKfycby3ZpsuOpWsvbQokZD9qvjkZ51TQfLTx7M5WAopyDx7ItYBpY5o42zn09XuyS-UmdTz-Q/exec', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(eventData),
       })
         .then(response => response.json())
         .then(data => {
+          console.log('Response from API:', data);  // Verifique o retorno da API no console
           if (data.result === 'success') {
             fetchEvents(); // Re-fetch events after saving
             closeModal();
@@ -278,6 +279,7 @@
           alert('Erro ao salvar agendamento.');
         });
     }
+
 
     // Event listeners for buttons
     document.getElementById('prev-week').addEventListener('click', () => {
