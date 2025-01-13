@@ -10,13 +10,33 @@
     /* Custom styles for horizontal scrolling */
     .scrolling-wrapper {
       display: flex;
-      overflow-x: auto;
+      overflow-x: hidden;
       scroll-snap-type: x mandatory;
+      transition: transform 1s ease;
+      /* Smooth transition */
+      width: max-content;
+      /* Ensures the total width expands as needed */
     }
 
     .scrolling-wrapper img {
       scroll-snap-align: start;
       flex: 0 0 auto;
+      border-radius: 12px;
+      /* Rounded corners for the images */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Add shadow for depth */
+      transition: transform 0.3s ease;
+      /* Smooth hover effect */
+      object-fit: cover;
+      /* Ensures images cover the container */
+      width: 300px;
+      height: 200px;
+      /* Define the height for object-cover to work */
+    }
+
+    .scrolling-wrapper img:hover {
+      transform: scale(1.05);
+      /* Zoom effect on hover */
     }
 
     .scrolling-wrapper::-webkit-scrollbar {
@@ -47,13 +67,13 @@
   <section class="py-12 bg-gray-50">
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold text-center mb-8">Nossos Trabalhos</h2>
-      <div class="scrolling-wrapper space-x-6 px-4">
-        <img src="https://via.placeholder.com/300" alt="Trabalho 1" class="w-full h-auto rounded shadow">
-        <img src="https://via.placeholder.com/300" alt="Trabalho 2" class="w-full h-auto rounded shadow">
-        <img src="https://via.placeholder.com/300" alt="Trabalho 3" class="w-full h-auto rounded shadow">
-        <img src="https://via.placeholder.com/300" alt="Trabalho 4" class="w-full h-auto rounded shadow">
-        <img src="https://via.placeholder.com/300" alt="Trabalho 5" class="w-full h-auto rounded shadow">
-        <img src="https://via.placeholder.com/300" alt="Trabalho 6" class="w-full h-auto rounded shadow">
+      <div class="scrolling-wrapper space-x-6 px-4" id="carousel">
+        <img src="images/img1.jpg" alt="Trabalho 1" class="w-96 rounded-lg shadow-xl">
+        <img src="images/img2.jpg" alt="Trabalho 2" class="w-96 rounded-lg shadow-xl">
+        <img src="images/img3.jpg" alt="Trabalho 3" class="w-96 rounded-lg shadow-xl">
+        <img src="images/img4.jpg" alt="Trabalho 4" class="w-96 rounded-lg shadow-xl">
+        <img src="images/img5.jpg" alt="Trabalho 5" class="w-96 rounded-lg shadow-xl">
+        <img src="images/img6.jpg" alt="Trabalho 6" class="w-96 rounded-lg shadow-xl">
       </div>
     </div>
   </section>
@@ -88,6 +108,30 @@
       <p>&copy; 2025 Minha Empresa. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <script>
+    // Function to make the scrolling automatic with loop
+    let scrollPosition = 0;
+    const carousel = document.getElementById("carousel");
+    const totalWidth = carousel.scrollWidth; // Get the total width of all images combined
+
+    function scrollCarousel() {
+      scrollPosition += 1;
+      // Check if we've reached the end and reset to the beginning
+      if (scrollPosition > totalWidth) {
+        scrollPosition = 0;
+        carousel.style.transition = 'none'; // Disable transition for a snap
+        carousel.style.transform = `translateX(0px)`; // Instantly reset to the start
+        setTimeout(() => {
+          carousel.style.transition = 'transform 1s ease'; // Re-enable smooth transition
+        }, 10); // Wait a tiny bit before resuming smooth scroll
+      }
+      carousel.style.transform = `translateX(-${scrollPosition}px)`;
+    }
+
+    // Scroll the carousel every 30ms
+    setInterval(scrollCarousel, 20);
+  </script>
 </body>
 
 </html>
