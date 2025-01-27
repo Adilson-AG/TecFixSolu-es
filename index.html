@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minha Empresa</title>
+  <title>TecFix Soluções</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     /* Custom styles for horizontal scrolling */
@@ -13,129 +13,157 @@
       overflow-x: hidden;
       scroll-snap-type: x mandatory;
       transition: transform 1s ease;
-      /* Smooth transition */
       width: max-content;
-
-      /* Ensures the total width expands as needed */
     }
 
     .scrolling-wrapper img {
       scroll-snap-align: start;
       flex: 0 0 auto;
       border-radius: 12px;
-      /* Rounded corners for the images */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      /* Add shadow for depth */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
-      /* Smooth hover effect */
       object-fit: cover;
-      /* Ensures images cover the container */
       width: 300px;
       height: 200px;
-      /* Define the height for object-cover to work */
     }
 
     .scrolling-wrapper img:hover {
       transform: scale(1.05);
-      /* Zoom effect on hover */
     }
 
     .scrolling-wrapper::-webkit-scrollbar {
       display: none;
     }
+
+    /* Navbar fixed */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+    }
   </style>
 </head>
 
 <body class="bg-gray-100">
+  <!-- Navbar -->
+  <nav class="navbar shadow-lg">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold text-blue-600">TecFix Soluções</h1>
+      <ul class="flex space-x-6">
+        <li><a href="#sobre" class="text-gray-700 hover:text-blue-600">Sobre</a></li>
+        <li><a href="#trabalhos" class="text-gray-700 hover:text-blue-600">Trabalhos</a></li>
+        <li><a href="#solucoes" class="text-gray-700 hover:text-blue-600">Soluções</a></li>
+        <li><a href="#contato" class="text-gray-700 hover:text-blue-600">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- Header -->
-  <header class="bg-blue-600 text-white py-6">
-    <div class="container mx-auto text-center">
-      <h1 class="text-4xl font-bold">Bem-vindo à Minha Empresa</h1>
-      <p class="mt-2 text-lg">Soluções que transformam o seu futuro</p>
+  <header class="relative bg-cover bg-center bg-no-repeat text-white py-20 mt-20"
+    style="background-image: url('images/capa.webp');">
+    <div class="absolute inset-0 bg-blue-800 bg-opacity-60"></div>
+    <!-- Overlay escuro para melhorar a legibilidade -->
+    <div class="container mx-auto text-center relative z-10">
+      <h1 class="text-5xl font-bold">Manutenção Especializada</h1>
+      <p class="mt-4 text-xl">Soluções em manutenção elétrica, mecânica e eletrônica</p>
+      <a href="#contato"
+        class="mt-6 inline-block bg-white text-blue-600 px-6 py-3 rounded-lg shadow-md hover:bg-gray-100">
+        Solicite um orçamento
+      </a>
     </div>
   </header>
 
+
   <!-- About Section -->
-  <section class="py-12 bg-white">
+  <section id="sobre" class="py-12 bg-white">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Sobre Nós</h2>
-      <p class="text-gray-700 leading-relaxed">Somos especializados em oferecer serviços de alta qualidade que atendem
-        às suas necessidades. Nossa missão é superar expectativas com inovação e dedicação.</p>
+      <h2 class="text-3xl font-bold mb-6 text-blue-600">Sobre Mim</h2>
+      <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
+        Tenho mais de 10 anos de experiência no setor industrial, oferecendo serviços de manutenção elétrica, mecânica e
+        eletrônica. Trabalho para solucionar seus problemas com rapidez, eficiência e foco na qualidade, garantindo que
+        seus equipamentos estejam sempre funcionando.
+      </p>
     </div>
   </section>
 
   <!-- Gallery Section -->
-  <section class="py-12 bg-gray-50">
+  <section id="trabalhos" class="py-12 bg-gray-50">
     <div class="container mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-8">Nossos Trabalhos</h2>
+      <h2 class="text-3xl font-bold text-center mb-8 text-blue-600">Meus Trabalhos</h2>
       <div class="scrolling-wrapper space-x-6 px-4" id="carousel">
         <img src="images/img1.jpg" alt="Trabalho 1" class="w-96 rounded-lg shadow-xl">
         <img src="images/img2.jpg" alt="Trabalho 2" class="w-96 rounded-lg shadow-xl">
         <img src="images/img3.jpg" alt="Trabalho 3" class="w-96 rounded-lg shadow-xl">
         <img src="images/img4.jpg" alt="Trabalho 4" class="w-96 rounded-lg shadow-xl">
-        <img src="images/img5.jpg" alt="Trabalho 5" class="w-96 rounded-lg shadow-xl">
-        <img src="images/img6.jpg" alt="Trabalho 6" class="w-96 rounded-lg shadow-xl">
-        <img src="images/img7.jpg" alt="Trabalho 7" class="w-96 rounded-lg shadow-xl">
-        <img src="images/img8.jpg" alt="Trabalho 8" class="w-96 rounded-lg shadow-xl">
-        <img src="images/img9.jpg" alt="Trabalho 9" class="w-96 rounded-lg shadow-xl">
-        <img src="images/img10.jpg" alt="Trabalho 10" class="w-96 rounded-lg shadow-xl">
-        <img src="images/img11.jpg" alt="Trabalho 11" class="w-96 rounded-lg shadow-xl">
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section class="py-12 bg-white">
+  <section id="solucoes" class="py-12 bg-white">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Nossos Serviços</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">Oferecemos uma ampla gama de serviços para atender às suas
-        necessidades específicas.</p>
-      <ul class="text-left inline-block">
-        <li class="mb-2">✅ Serviço 1</li>
-        <li class="mb-2">✅ Serviço 2</li>
-        <li class="mb-2">✅ Serviço 3</li>
-      </ul>
+      <h2 class="text-3xl font-bold mb-6 text-blue-600">Soluções Oferecidas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
+          <h3 class="text-lg font-bold mb-2">🔧 Manutenção Mecânica</h3>
+          <p class="text-gray-700">Conserto e ajustes para manter o desempenho de seus equipamentos industriais.</p>
+        </div>
+        <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
+          <h3 class="text-lg font-bold mb-2">💡 Reparos Elétricos</h3>
+          <p class="text-gray-700">Reparos rápidos para evitar paradas e garantir segurança.</p>
+        </div>
+        <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
+          <h3 class="text-lg font-bold mb-2">📟 Integração Eletrônica</h3>
+          <p class="text-gray-700">Automação e integração de sistemas eletrônicos para mais eficiência.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section class="py-12 bg-gray-50">
+  <section id="contato" class="py-12 bg-gray-50">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Contato</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">Entre em contato conosco para mais informações!</p>
-      <a href="mailto:contato@minhaempresa.com"
-        class="bg-blue-600 text-white px-6 py-3 rounded shadow hover:bg-blue-700">contato@minhaempresa.com</a>
+      <h2 class="text-3xl font-bold mb-4 text-blue-600">Entre em Contato</h2>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Fale comigo e resolva seus problemas com um serviço de qualidade!<br>
+        Horários de Atendimento: Segunda a Sexta: 8h às 18h | Sábados: 8h às 12h
+      </p>
+      <a href="https://wa.me/19999903927" target="_blank"
+        class="bg-green-500 text-white px-6 py-3 rounded shadow hover:bg-green-600">
+        Fale Conosco pelo WhatsApp
+      </a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-600 text-white py-4">
+  <footer class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-6">
     <div class="container mx-auto text-center">
-      <p>&copy; 2025 Minha Empresa. Todos os direitos reservados.</p>
+      <p>&copy; 2025 Manutenção Especializada. Todos os direitos reservados.</p>
     </div>
   </footer>
 
   <script>
-    // Function to make the scrolling automatic with loop
     let scrollPosition = 0;
     const carousel = document.getElementById("carousel");
-    const totalWidth = carousel.scrollWidth; // Get the total width of all images combined
+    const totalWidth = carousel.scrollWidth;
 
     function scrollCarousel() {
       scrollPosition += 1;
-      // Check if we've reached the end and reset to the beginning
       if (scrollPosition > totalWidth) {
         scrollPosition = 0;
-        carousel.style.transition = 'none'; // Disable transition for a snap
-        carousel.style.transform = `translateX(0px)`; // Instantly reset to the start
+        carousel.style.transition = 'none';
+        carousel.style.transform = `translateX(0px)`;
         setTimeout(() => {
-          carousel.style.transition = 'transform 1s ease'; // Re-enable smooth transition
-        }, 10); // Wait a tiny bit before resuming smooth scroll
+          carousel.style.transition = 'transform 1s ease';
+        }, 10);
       }
       carousel.style.transform = `translateX(-${scrollPosition}px)`;
     }
 
-    // Scroll the carousel every 30ms
     setInterval(scrollCarousel, 20);
   </script>
 </body>
