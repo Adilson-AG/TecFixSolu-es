@@ -10,10 +10,11 @@
     /* Custom styles for horizontal scrolling */
     .scrolling-wrapper {
       display: flex;
-      overflow-x: hidden;
+      overflow-x: auto;
       scroll-snap-type: x mandatory;
       transition: transform 1s ease;
-      width: max-content;
+      width: 100%;
+      padding-bottom: 10px;
     }
 
     .scrolling-wrapper img {
@@ -23,8 +24,8 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
       object-fit: cover;
-      width: 300px;
-      height: 200px;
+      width: 250px;
+      height: 150px;
     }
 
     .scrolling-wrapper img:hover {
@@ -53,14 +54,30 @@
   <nav class="navbar shadow-lg">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
       <h1 class="text-2xl font-bold text-blue-600">TecFix Soluções</h1>
-      <ul class="flex space-x-6">
+      <ul class="hidden md:flex space-x-6">
         <li><a href="#sobre" class="text-gray-700 hover:text-blue-600">Sobre</a></li>
         <li><a href="#trabalhos" class="text-gray-700 hover:text-blue-600">Trabalhos</a></li>
         <li><a href="#solucoes" class="text-gray-700 hover:text-blue-600">Soluções</a></li>
         <li><a href="#contato" class="text-gray-700 hover:text-blue-600">Contato</a></li>
       </ul>
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-gray-700" id="menu-button">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden" id="mobile-menu">
+    <ul class="flex flex-col items-center py-4 space-y-4 bg-white">
+      <li><a href="#sobre" class="text-gray-700 hover:text-blue-600">Sobre</a></li>
+      <li><a href="#trabalhos" class="text-gray-700 hover:text-blue-600">Trabalhos</a></li>
+      <li><a href="#solucoes" class="text-gray-700 hover:text-blue-600">Soluções</a></li>
+      <li><a href="#contato" class="text-gray-700 hover:text-blue-600">Contato</a></li>
+    </ul>
+  </div>
 
   <!-- Header -->
   <header class="relative bg-cover bg-center bg-no-repeat text-white py-20 mt-20"
@@ -68,8 +85,8 @@
     <div class="absolute inset-0 bg-blue-800 bg-opacity-60"></div>
     <!-- Overlay escuro para melhorar a legibilidade -->
     <div class="container mx-auto text-center relative z-10">
-      <h1 class="text-5xl font-bold">Manutenção Especializada</h1>
-      <p class="mt-4 text-xl">Soluções em manutenção elétrica, mecânica e eletrônica</p>
+      <h1 class="text-4xl sm:text-3xl md:text-5xl font-bold">Manutenção Especializada</h1>
+      <p class="mt-4 text-lg sm:text-base md:text-xl">Soluções em manutenção elétrica, mecânica e eletrônica</p>
       <a href="#contato"
         class="mt-6 inline-block bg-white text-blue-600 px-6 py-3 rounded-lg shadow-md hover:bg-gray-100">
         Solicite um orçamento
@@ -77,12 +94,11 @@
     </div>
   </header>
 
-
   <!-- About Section -->
   <section id="sobre" class="py-12 bg-white">
     <div class="container mx-auto text-center">
       <h2 class="text-3xl font-bold mb-6 text-blue-600">Sobre Mim</h2>
-      <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
+      <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto text-sm sm:text-base">
         Tenho mais de 10 anos de experiência no setor industrial, oferecendo serviços de manutenção elétrica, mecânica e
         eletrônica. Trabalho para solucionar seus problemas com rapidez, eficiência e foco na qualidade, garantindo que
         seus equipamentos estejam sempre funcionando.
@@ -95,10 +111,10 @@
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold text-center mb-8 text-blue-600">Meus Trabalhos</h2>
       <div class="scrolling-wrapper space-x-6 px-4" id="carousel">
-        <img src="images/img1.jpg" alt="Trabalho 1" class="w-96 rounded-lg shadow-xl">
-        <img src="images/img2.jpg" alt="Trabalho 2" class="w-96 rounded-lg shadow-xl">
-        <img src="images/img3.jpg" alt="Trabalho 3" class="w-96 rounded-lg shadow-xl">
-        <img src="images/img4.jpg" alt="Trabalho 4" class="w-96 rounded-lg shadow-xl">
+        <img src="images/img1.jpg" alt="Trabalho 1" class="w-80 sm:w-96 rounded-lg shadow-xl">
+        <img src="images/img2.jpg" alt="Trabalho 2" class="w-80 sm:w-96 rounded-lg shadow-xl">
+        <img src="images/img3.jpg" alt="Trabalho 3" class="w-80 sm:w-96 rounded-lg shadow-xl">
+        <img src="images/img4.jpg" alt="Trabalho 4" class="w-80 sm:w-96 rounded-lg shadow-xl">
       </div>
     </div>
   </section>
@@ -107,18 +123,20 @@
   <section id="solucoes" class="py-12 bg-white">
     <div class="container mx-auto text-center">
       <h2 class="text-3xl font-bold mb-6 text-blue-600">Soluções Oferecidas</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
           <h3 class="text-lg font-bold mb-2">🔧 Manutenção Mecânica</h3>
-          <p class="text-gray-700">Conserto e ajustes para manter o desempenho de seus equipamentos industriais.</p>
+          <p class="text-gray-700 text-sm sm:text-base">Conserto e ajustes para manter o desempenho de seus equipamentos
+            industriais.</p>
         </div>
         <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
           <h3 class="text-lg font-bold mb-2">💡 Reparos Elétricos</h3>
-          <p class="text-gray-700">Reparos rápidos para evitar paradas e garantir segurança.</p>
+          <p class="text-gray-700 text-sm sm:text-base">Reparos rápidos para evitar paradas e garantir segurança.</p>
         </div>
         <div class="p-6 bg-gray-50 shadow-lg rounded-lg">
           <h3 class="text-lg font-bold mb-2">📟 Integração Eletrônica</h3>
-          <p class="text-gray-700">Automação e integração de sistemas eletrônicos para mais eficiência.</p>
+          <p class="text-gray-700 text-sm sm:text-base">Automação e integração de sistemas eletrônicos para mais
+            eficiência.</p>
         </div>
       </div>
     </div>
@@ -128,11 +146,11 @@
   <section id="contato" class="py-12 bg-gray-50">
     <div class="container mx-auto text-center">
       <h2 class="text-3xl font-bold mb-4 text-blue-600">Entre em Contato</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
+      <p class="text-gray-700 leading-relaxed mb-6 text-sm sm:text-base">
         Fale comigo e resolva seus problemas com um serviço de qualidade!<br>
         Horários de Atendimento: Segunda a Sexta: 8h às 18h | Sábados: 8h às 12h
       </p>
-      <a href="https://wa.me/19999903927" target="_blank"
+      <a href="https://wa.me/000000000" target="_blank"
         class="bg-green-500 text-white px-6 py-3 rounded shadow hover:bg-green-600">
         Fale Conosco pelo WhatsApp
       </a>
@@ -155,16 +173,11 @@
       scrollPosition += 1;
       if (scrollPosition > totalWidth) {
         scrollPosition = 0;
-        carousel.style.transition = 'none';
-        carousel.style.transform = `translateX(0px)`;
-        setTimeout(() => {
-          carousel.style.transition = 'transform 1s ease';
-        }, 10);
       }
       carousel.style.transform = `translateX(-${scrollPosition}px)`;
     }
 
-    setInterval(scrollCarousel, 20);
+    setInterval(scrollCarousel, 15); // Adjust speed by changing the interval
   </script>
 </body>
 
